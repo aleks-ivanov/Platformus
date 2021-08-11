@@ -16,7 +16,7 @@
     <PackageReference Include="ExtCore.Data" Version="6.0.0" />
     <PackageReference Include="ExtCore.Data.EntityFramework" Version="6.0.0" />
     <PackageReference Include="ExtCore.WebApplication" Version="6.0.0" />
-    <PackageReference Include="Magicalizer.Data.Repositories.EntityFramework" Version="1.0.0-alpha5" />
+    <PackageReference Include="Magicalizer.Data.Repositories.EntityFramework" Version="1.0.0-beta1" />
   </ItemGroup>
 
   <ItemGroup>
