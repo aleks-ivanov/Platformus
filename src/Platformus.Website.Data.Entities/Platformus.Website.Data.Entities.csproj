@@ -13,7 +13,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Magicalizer.Data.Entities.Abstractions" Version="1.0.0-alpha5" />
+    <PackageReference Include="Magicalizer.Data.Entities.Abstractions" Version="1.0.0-beta1" />
     <PackageReference Include="Magicalizer.Filters.Abstractions" Version="1.0.0-alpha5" />
   </ItemGroup>
 
