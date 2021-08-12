@@ -197,23 +197,21 @@ jobs:
         run: |
           $nugetPackagesFolder = "${{ needs.ci.outputs.nugetPackagesFolderName }}"
           $latestVersion = "${{ needs.ci.outputs.latest_version }}"
-          $packagesArchiveTitle = "$nugetPackagesFolder $latestVersion.7z"
+          $githubRunNumber = ${{ github.run_number }}
+          $packagesArchiveTitle = "$nugetPackagesFolder $latestVersion-$githubRunNumber.7z"
 
           Push-Location "./$nugetPackagesFolder"
           7z a "${{ github.workspace }}/$packagesArchiveTitle" .
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
 
       - name: Create and publish release
         shell: pwsh
         run: |
           $nugetPackagesFolder = "${{ needs.ci.outputs.nugetPackagesFolderName }}"
           $latestVersion = "${{ needs.ci.outputs.latest_version }}"
+          $githubRunNumber = ${{ github.run_number }}
           $releaseTag = $latestVersion
-          $releaseTitle = "$latestVersion"
-          $releaseNotes = ""
-          $releaseAssets = "$nugetPackagesFolder $latestVersion.7z"
+          $releaseTitle = " $latestVersion"
+          $releaseAssets = "$nugetPackagesFolder $latestVersion-$githubRunNumber.7z"
 
           gh release create $releaseTag `
           --title $releaseTitle `
