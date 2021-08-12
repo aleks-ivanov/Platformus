@@ -202,8 +202,8 @@ jobs:
           Push-Location "./$nugetPackagesFolder"
           7z a "${{ github.workspace }}/$packagesArchiveTitle" .
 
-#      - name: Setup tmate session
-#        uses: mxschmitt/action-tmate@v3
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: Create and publish release
         shell: pwsh
@@ -213,7 +213,7 @@ jobs:
           $releaseTag = $latestVersion
           $releaseTitle = " $latestVersion"
           $releaseNotes = ""
-          $releaseAssets = "NuGet packages 2.5.2.7z"
+          $releaseAssets = "$nugetPackagesFolder $latestVersion.7z"
 
           gh release create $releaseTag `
           --title $releaseTitle `
