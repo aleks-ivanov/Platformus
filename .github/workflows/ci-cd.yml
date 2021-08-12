@@ -202,6 +202,9 @@ jobs:
           Push-Location "./$nugetPackagesFolder"
           7z a "${{ github.workspace }}/$packagesArchiveTitle" .
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - name: Create and publish release
         shell: pwsh
         run: |
