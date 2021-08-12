@@ -208,7 +208,7 @@ jobs:
       - name: Create and publish release
         shell: pwsh
         run: |
-          $nugetPackagesFolder = "${{ needs.ci.outputs.nugetPackagesFolderName }}"
+          $nugetPackagesFolder = ${{ needs.ci.outputs.nugetPackagesFolderName }}
           $latestVersion = "${{ needs.ci.outputs.latest_version }}"
           $releaseTag = $latestVersion
           $releaseTitle = " $latestVersion"
